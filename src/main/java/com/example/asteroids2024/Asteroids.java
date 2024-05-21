@@ -1,6 +1,7 @@
 package com.example.asteroids2024;
 
 import javafx.application.Application;
+import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -9,6 +10,8 @@ import javafx.scene.input.KeyCode;
 
 // create subclass of javafx class Application specific to Asteroids
 public class Asteroids extends Application {
+    private boolean shipLeft = false;
+    private boolean shipRight = false;
 
     @Override
     // use existing class Stage - the interface for managing the window
@@ -29,18 +32,42 @@ public class Asteroids extends Application {
         stage.setTitle("Asteroids!");
         stage.setScene(scene);
         stage.show();
+        // handle key inputs
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT) {
-                ship.rotateLeft();
+                shipLeft = true;
             }
-
             if (event.getCode() == KeyCode.RIGHT) {
-                ship.rotateRight();
+                shipRight = true;
             }
         });
+
+        scene.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.LEFT) {
+                shipLeft = false;
+            }
+            if (event.getCode() == KeyCode.RIGHT) {
+                shipRight = false;
+            }
+        });
+
+
+        // Create an AnimationTimer to handle the ship rotation
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                if (shipLeft) {
+                    ship.rotateLeft();
+                }
+                if (shipRight) {
+                    ship.rotateRight();
+                }
+            }
+        };
+        timer.start();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+        public static void main (String[]args){
+            launch(args);
+        }
     }
-}
