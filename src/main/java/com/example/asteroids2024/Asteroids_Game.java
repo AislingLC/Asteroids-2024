@@ -86,8 +86,10 @@ public class Asteroids_Game extends Application {
                 if (shipDecelerate) {
                     ship.decelerate();
                 }
+
                 ship.updateMovement();
                 ship.move();
+                asteroid.move();
             }
         };
         timer.start();
