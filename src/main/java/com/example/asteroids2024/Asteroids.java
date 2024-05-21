@@ -13,6 +13,9 @@ public class Asteroids extends Application {
     private boolean shipLeft = false;
     private boolean shipRight = false;
 
+    private boolean shipAccelerate = false;
+    private boolean shipDecelerate = false;
+
     @Override
     // use existing class Stage - the interface for managing the window
     public void start(Stage stage) throws Exception {
@@ -40,6 +43,12 @@ public class Asteroids extends Application {
             if (event.getCode() == KeyCode.RIGHT) {
                 shipRight = true;
             }
+            if (event.getCode() == KeyCode.UP) {
+                shipAccelerate = true;
+            }
+            if (event.getCode() == KeyCode.DOWN) {
+                shipDecelerate = true;
+            }
         });
 
         scene.setOnKeyReleased(event -> {
@@ -48,6 +57,12 @@ public class Asteroids extends Application {
             }
             if (event.getCode() == KeyCode.RIGHT) {
                 shipRight = false;
+            }
+            if (event.getCode() == KeyCode.UP) {
+                shipAccelerate = false;
+            }
+            if (event.getCode() == KeyCode.DOWN) {
+                shipDecelerate = false;
             }
         });
 
@@ -62,6 +77,14 @@ public class Asteroids extends Application {
                 if (shipRight) {
                     ship.rotateRight();
                 }
+                if (shipAccelerate) {
+                    ship.accelerate();
+                }
+                if (shipDecelerate) {
+                    ship.decelerate();
+                }
+                ship.updateMovement();
+                ship.move();
             }
         };
         timer.start();
