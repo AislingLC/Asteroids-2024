@@ -21,6 +21,7 @@ public abstract class Character {
         this.character.setTranslateY(y);
 
         this.movement = new Point2D(0, 0);
+        this.speed = 0;
     }
 
     public Polygon getCharacter() {
@@ -38,7 +39,7 @@ public abstract class Character {
         this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
     }
     public void accelerate() {
-        speed += 0.05;
+        speed = Math.min(10, speed + 0.05);
         updateMovement();
     }
 

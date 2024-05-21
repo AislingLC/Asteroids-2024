@@ -9,7 +9,7 @@ import javafx.scene.input.KeyCode;
 
 
 // create subclass of javafx class Application specific to Asteroids
-public class Asteroids extends Application {
+public class Asteroids_Game extends Application {
     private boolean shipLeft = false;
     private boolean shipRight = false;
 
@@ -27,8 +27,11 @@ public class Asteroids extends Application {
 
         // Instantiate the Ship object
         Ship ship = new Ship(300, 200);
+        //Instantiate Asteroid object
+        Asteroid asteroid = new Asteroid(50,50);
 
         pane.getChildren().add(ship.getCharacter());
+        pane.getChildren().add(asteroid.getCharacter());
         // use existing Scene class, to hold visual elements and UI hierarchy
 
         Scene scene = new Scene(pane);

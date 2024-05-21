@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Character.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/HelloApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/HelloController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Ship.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,9 +68,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Asteroids">
-    <configuration name="Asteroids" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.asteroids2024.Asteroids" />
+  <component name="RunManager" selected="Application.Asteroids_Game">
+    <configuration name="Asteroids_Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.asteroids2024.Asteroids_Game" />
       <module name="Asteroids-2024" />
       <extension name="coverage">
         <pattern>
@@ -104,7 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Asteroids" />
+        <item itemvalue="Application.Asteroids_Game" />
         <item itemvalue="Application.Window" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -125,5 +131,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
