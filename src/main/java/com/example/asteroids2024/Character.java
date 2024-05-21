@@ -25,19 +25,11 @@ public abstract class Character {
     public Polygon getCharacter() {
         return character;
     }
-
-    public void turnLeft() {
-        this.character.setRotate(this.character.getRotate() - 5);
+    public void rotateLeft() { character.setRotate(character.getRotate() - 5); }
+    public void rotateRight() {
+        character.setRotate(character.getRotate() + 5);
     }
 
-    public void turnRight() {
-        this.character.setRotate(this.character.getRotate() + 5);
-    }
-
-    public void move() {
-        this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
-        this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
-    }
 
 
 }

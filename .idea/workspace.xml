@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="" />
+    <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Character.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Asteroids-2024" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,6 +37,9 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2gmh8bKTdOMWye36gtcMrLp9BQm" />
   <component name="ProjectViewState">
@@ -107,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716308501213</updated>
       <workItem from="1716308502210" duration="2000" />
-      <workItem from="1716308510369" duration="6090000" />
+      <workItem from="1716308510369" duration="6833000" />
     </task>
     <servers />
   </component>

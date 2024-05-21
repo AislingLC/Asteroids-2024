@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.input.KeyCode;
 
 
 // create subclass of javafx class Application specific to Asteroids
@@ -28,6 +29,15 @@ public class Asteroids extends Application {
         stage.setTitle("Asteroids!");
         stage.setScene(scene);
         stage.show();
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.LEFT) {
+                ship.rotateLeft();
+            }
+
+            if (event.getCode() == KeyCode.RIGHT) {
+                ship.rotateRight();
+            }
+        });
     }
 
     public static void main(String[] args) {
