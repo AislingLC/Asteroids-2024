@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 // create subclass of javafx class Application specific to Asteroids
@@ -30,12 +33,18 @@ public class Asteroids_Game extends Application {
         pane.setStyle("-fx-background-color: black;");
 
         // Instantiate the Ship object
-        Ship ship = new Ship(WIDTH/2, HEIGHT/2);
-        //Instantiate Asteroid object
-        Asteroid asteroid = new Asteroid(50,50);
+        Ship ship = new Ship(WIDTH / 2, HEIGHT / 2);
+        //Instantiate list of Asteroid objects
+        Random rnd = new Random();
+        List<Asteroid> asteroids = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150));
+            asteroids.add(asteroid);
+        }
+
 
         pane.getChildren().add(ship.getCharacter());
-        pane.getChildren().add(asteroid.getCharacter());
+        asteroids.forEach(asteroid -> pane.getChildren().add(asteroid.getCharacter()));
         // use existing Scene class, to hold visual elements and UI hierarchy
 
         Scene scene = new Scene(pane);
@@ -92,17 +101,20 @@ public class Asteroids_Game extends Application {
                 }
 
                 ship.move();
-                asteroid.move();
+                asteroids.forEach(asteroid -> asteroid.move());
 
-                if (ship.collision(asteroid)) {
-                    stop();
-                }
+                asteroids.forEach(asteroid -> {
+                    if (ship.collision(asteroid)) {
+                        stop();
+                    }
+
+                });
+
             }
         };
-        timer.start();
-    }
-
-        public static void main (String[]args){
-            launch(args);
+                timer.start();
+            }
+            public static void main(String[] args) {
+                launch(args);
+            }
         }
-    }

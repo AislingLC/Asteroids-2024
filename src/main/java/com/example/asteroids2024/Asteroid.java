@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Asteroid extends Character{
     private static final double SPEED = 0.1;
-    private static final double RADIUS = 20; // Define the radius for the asteroid shape
+    private static final double RADIUS = 30; // Define the radius for the asteroid shape
  //Asteroid radius
     public Asteroid(int x, int y) {
         super(createAsteroidPolygon(), x, y);
