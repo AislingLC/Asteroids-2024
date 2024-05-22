@@ -44,6 +44,22 @@ public abstract class Character {
         this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
         this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
 
+        if (this.character.getTranslateX() < 0) {
+            this.character.setTranslateX(this.character.getTranslateX() + Asteroids_Game.WIDTH);
+        }
+
+        if (this.character.getTranslateX() > Asteroids_Game.WIDTH) {
+            this.character.setTranslateX(this.character.getTranslateX() % Asteroids_Game.WIDTH);
+        }
+
+        if (this.character.getTranslateY() < 0) {
+            this.character.setTranslateY(this.character.getTranslateY() + Asteroids_Game.HEIGHT);
+        }
+
+        if (this.character.getTranslateY() > Asteroids_Game.HEIGHT) {
+            this.character.setTranslateY(this.character.getTranslateY() % Asteroids_Game.HEIGHT);
+        }
+
 
     }
     public void accelerate() {
