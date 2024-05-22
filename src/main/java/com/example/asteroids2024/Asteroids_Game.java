@@ -43,7 +43,8 @@ public class Asteroids_Game extends Application {
         Random rnd = new Random();
         List<Asteroid> asteroids = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150));
+
+            Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150), AsteroidSize.LARGE);
             asteroids.add(asteroid);
         }
 

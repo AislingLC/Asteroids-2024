@@ -5,11 +5,11 @@ import javafx.scene.shape.Polygon;
 import java.util.Random;
 
 public class Asteroid extends Character{
+    private AsteroidSize size;
     private static final double SPEED = 0.1;
-    private static final double RADIUS = 30; // Define the radius for the asteroid shape
  //Asteroid radius
-    public Asteroid(int x, int y) {
-        super(createAsteroidPolygon(), x, y);
+    public Asteroid(int x, int y, AsteroidSize size) {
+        super(createAsteroidPolygon(size), x, y);
         Random rand = new Random();
         double angle = rand.nextDouble() * 360; // Random angle between 0 and 360 degrees
         this.setRotate(angle);
@@ -17,8 +17,9 @@ public class Asteroid extends Character{
         updateMovement();
     }
 
-    private static Polygon createAsteroidPolygon() {
-        double[] points = PolygonGenerator.generatePoints(RADIUS);
+    private static Polygon createAsteroidPolygon(AsteroidSize size) {
+        int radius = size.getRadius();
+        double[] points = PolygonGenerator.generatePoints(radius);
         return new Polygon(points);
     }
 }

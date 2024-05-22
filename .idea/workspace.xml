@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/AsteroidSize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Character.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,7 @@
       <updated>1716308501213</updated>
       <workItem from="1716308502210" duration="2000" />
       <workItem from="1716308510369" duration="6833000" />
-      <workItem from="1716329863845" duration="10633000" />
+      <workItem from="1716329863845" duration="11310000" />
     </task>
     <servers />
   </component>
@@ -147,7 +147,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>157</line>
+          <line>158</line>
           <properties class="com.example.asteroids2024.Asteroids_Game" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
