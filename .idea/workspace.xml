@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +129,7 @@
       <updated>1716308501213</updated>
       <workItem from="1716308502210" duration="2000" />
       <workItem from="1716308510369" duration="6833000" />
-      <workItem from="1716329863845" duration="7614000" />
+      <workItem from="1716329863845" duration="8795000" />
     </task>
     <servers />
   </component>
@@ -141,18 +141,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>14</line>
+          <line>16</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -6,10 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+]
 
 // create subclass of javafx class Application specific to Asteroids
 public class Asteroids_Game extends Application {
@@ -21,6 +23,8 @@ public class Asteroids_Game extends Application {
 
     private boolean shipAccelerate = false;
     private boolean shipDecelerate = false;
+
+
 
 
     @Override
@@ -41,6 +45,10 @@ public class Asteroids_Game extends Application {
             Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150));
             asteroids.add(asteroid);
         }
+
+        // get an empty list for bullets but don't add to screen yet
+        List<Bullet> bullets = new ArrayList<>();
+
 
 
         pane.getChildren().add(ship.getCharacter());
@@ -65,6 +73,14 @@ public class Asteroids_Game extends Application {
             if (event.getCode() == KeyCode.DOWN) {
                 shipDecelerate = true;
             }
+            if (event.getCode() == KeyCode.SPACE) {
+                // Shoot a bullet
+                Bullet bullet = new Bullet((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
+                bullet.getCharacter().setRotate(ship.getCharacter().getRotate());
+                bullets.add(bullet);
+                pane.getChildren().add(bullet.getCharacter());
+            }
+
         });
 
         scene.setOnKeyReleased(event -> {
@@ -109,6 +125,7 @@ public class Asteroids_Game extends Application {
                     }
 
                 });
+
 
             }
         };
