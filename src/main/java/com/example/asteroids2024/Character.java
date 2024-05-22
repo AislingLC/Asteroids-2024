@@ -77,7 +77,8 @@ public abstract class Character {
         double changeY = speed * Math.sin(angle);
         this.movement = new Point2D(changeX, changeY);
     }
-
+    public Point2D getMovement() {return this.movement;}
+    public void setMovement(Point2D movement) {this.movement = movement;}
 
     public void setRotate(double angle) {
         this.character.setRotate(angle);

@@ -7,11 +7,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
 
+import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
-]
 
 // create subclass of javafx class Application specific to Asteroids
 public class Asteroids_Game extends Application {
@@ -78,6 +79,9 @@ public class Asteroids_Game extends Application {
                 Bullet bullet = new Bullet((int) ship.getCharacter().getTranslateX(), (int) ship.getCharacter().getTranslateY());
                 bullet.getCharacter().setRotate(ship.getCharacter().getRotate());
                 bullets.add(bullet);
+                bullet.accelerate();
+                bullet.setMovement(bullet.getMovement().multiply(50));
+
                 pane.getChildren().add(bullet.getCharacter());
             }
 
@@ -125,6 +129,26 @@ public class Asteroids_Game extends Application {
                     }
 
                 });
+                bullets.forEach((bullet -> bullet.move()));
+
+                List<Bullet> usedBullets = bullets.stream().filter(bullet -> {
+                    List<Asteroid> collisions =  asteroids.stream()
+                                                .filter(asteroid -> asteroid.collision(bullet))
+                                                .collect(Collectors.toList());
+                    if(collisions.isEmpty()) {
+                        return false;
+                    }
+                    collisions.stream().forEach(hit -> {
+                        asteroids.remove(hit);
+                        pane.getChildren().remove(hit.getCharacter());
+                    });
+                    return true;
+                }).collect(Collectors.toList());
+                usedBullets.forEach(bullet -> {
+                    pane.getChildren().remove(bullet.getCharacter());
+                    bullets.remove(bullet);
+                });
+
 
 
             }
