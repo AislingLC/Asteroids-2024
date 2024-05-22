@@ -1,6 +1,7 @@
 package com.example.asteroids2024;
 
 import javafx.geometry.Point2D;
+import javafx.scene.shape.Shape;
 import javafx.scene.shape.Polygon;
 import javafx.scene.paint.Color;
 
@@ -64,6 +65,13 @@ public abstract class Character {
 
     public double getRotate() {
         return this.character.getRotate();
+    }
+
+
+
+    public boolean collision(Character other) {
+        Shape collisionArea = Shape.intersect(this.character, other.getCharacter());
+        return collisionArea.getBoundsInLocal().getWidth() != -1;
     }
     }
 

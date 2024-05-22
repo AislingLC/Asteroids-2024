@@ -90,6 +90,10 @@ public class Asteroids_Game extends Application {
                 ship.updateMovement();
                 ship.move();
                 asteroid.move();
+
+                if (ship.collision(asteroid)) {
+                    stop();
+                }
             }
         };
         timer.start();
