@@ -15,8 +15,11 @@ public abstract class Character {
 
     public Character(Polygon polygon, int x, int y) {
         this.character = polygon;
-        // All characters will be white
-        polygon.setFill(Color.WHITE);
+        // All characters will have white outlines per Atari Asteroids game
+        polygon.setFill(Color.TRANSPARENT); // No fill
+        polygon.setStroke(Color.WHITE); // White outline
+        polygon.setStrokeWidth(2); // Set the width of the outline
+
         this.character.setTranslateX(x);
         this.character.setTranslateY(y);
 
