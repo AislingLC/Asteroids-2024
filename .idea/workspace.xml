@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/PolygonGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +114,7 @@
       <updated>1716308501213</updated>
       <workItem from="1716308502210" duration="2000" />
       <workItem from="1716308510369" duration="6833000" />
+      <workItem from="1716329863845" duration="2232000" />
     </task>
     <servers />
   </component>
