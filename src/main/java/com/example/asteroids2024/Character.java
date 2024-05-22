@@ -32,15 +32,19 @@ public abstract class Character {
         return character;
     }
 
-    public void rotateLeft() { character.setRotate(character.getRotate() - 5); }
+    public void rotateLeft() { character.setRotate(character.getRotate() - 5);
+        updateMovement();}
     public void rotateRight() {
         character.setRotate(character.getRotate() + 5);
+        updateMovement();
     }
     // allow movement
 
     public void move() {
         this.character.setTranslateX(this.character.getTranslateX() + this.movement.getX());
         this.character.setTranslateY(this.character.getTranslateY() + this.movement.getY());
+
+
     }
     public void accelerate() {
         speed = Math.min(10, speed + 0.05);

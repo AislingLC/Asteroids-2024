@@ -10,23 +10,27 @@ import javafx.scene.input.KeyCode;
 
 // create subclass of javafx class Application specific to Asteroids
 public class Asteroids_Game extends Application {
+
+    public static int WIDTH = 600;
+    public static int HEIGHT = 400;
     private boolean shipLeft = false;
     private boolean shipRight = false;
 
     private boolean shipAccelerate = false;
     private boolean shipDecelerate = false;
 
+
     @Override
     // use existing class Stage - the interface for managing the window
     public void start(Stage stage) throws Exception {
         // use existing class Pane to create layout container
         Pane pane = new Pane();
-        pane.setPrefSize(600, 400);
+        pane.setPrefSize(WIDTH, HEIGHT);
         // Set the background color to black
         pane.setStyle("-fx-background-color: black;");
 
         // Instantiate the Ship object
-        Ship ship = new Ship(300, 200);
+        Ship ship = new Ship(WIDTH/2, HEIGHT/2);
         //Instantiate Asteroid object
         Asteroid asteroid = new Asteroid(50,50);
 
@@ -87,7 +91,6 @@ public class Asteroids_Game extends Application {
                     ship.decelerate();
                 }
 
-                ship.updateMovement();
                 ship.move();
                 asteroid.move();
 
