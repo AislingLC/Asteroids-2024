@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 
 // create subclass of javafx class Application specific to Asteroids
@@ -28,6 +30,9 @@ public class Asteroids_Game extends Application {
 
     private int level = 1; //tracks level
     private Text levelText; // text variable to display level
+    private AtomicInteger points = new AtomicInteger();
+
+    private Text pointsText; // text variable to total points accumulated
 
     @Override
     // use existing class Stage - the interface for managing the window
@@ -45,6 +50,13 @@ public class Asteroids_Game extends Application {
         levelText.setTranslateX(10); // Position at the top-left corner
         levelText.setTranslateY(20);
         pane.getChildren().add(levelText);
+
+        pointsText = new Text("POINTS: " + points);
+        pointsText.setFont(new Font(20));
+        pointsText.setFill(javafx.scene.paint.Color.WHITE);
+        pointsText.setTranslateX(10); // Position at the bottom-left corner
+        pointsText.setTranslateY(370);
+        pane.getChildren().add(pointsText);
 
 
         // Instantiate the Ship object
