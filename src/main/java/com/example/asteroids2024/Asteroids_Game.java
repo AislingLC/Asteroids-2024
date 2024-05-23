@@ -140,6 +140,26 @@ public class Asteroids_Game extends Application {
                         return false;
                     }
                     collisions.stream().forEach(hit -> {
+                        // add logic to spawn new asteroids one size smaller in for large and medium asteroids
+                        if (hit.getSize() == AsteroidSize.LARGE) {
+                            for (int i = 0; i < 2; i++) {
+                                Asteroid newAsteroid = new Asteroid(
+                                        (int) hit.getCharacter().getTranslateX(),
+                                        (int) hit.getCharacter().getTranslateY(),
+                                        AsteroidSize.MEDIUM);
+                                asteroids.add(newAsteroid);
+                                pane.getChildren().add(newAsteroid.getCharacter());
+                            } } else if (hit.getSize() == AsteroidSize.MEDIUM) {
+                            for (int i = 0; i < 2; i++) {
+                                Asteroid newAsteroid = new Asteroid(
+                                        (int) hit.getCharacter().getTranslateX(),
+                                        (int) hit.getCharacter().getTranslateY(),
+                                        AsteroidSize.SMALL);
+                                asteroids.add(newAsteroid);
+                                pane.getChildren().add(newAsteroid.getCharacter());
+                            } }
+
+
                         asteroids.remove(hit);
                         pane.getChildren().remove(hit.getCharacter());
                     });
