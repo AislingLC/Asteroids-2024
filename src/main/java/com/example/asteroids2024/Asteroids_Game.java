@@ -6,8 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
-import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -25,8 +26,8 @@ public class Asteroids_Game extends Application {
     private boolean shipAccelerate = false;
     private boolean shipDecelerate = false;
 
-
-
+    private int level = 1; //tracks level
+    private Text levelText; // text variable to display level
 
     @Override
     // use existing class Stage - the interface for managing the window
@@ -36,6 +37,15 @@ public class Asteroids_Game extends Application {
         pane.setPrefSize(WIDTH, HEIGHT);
         // Set the background color to black
         pane.setStyle("-fx-background-color: black;");
+
+        // Create the level text to display on screen
+        levelText = new Text("LEVEL: " + level);
+        levelText.setFont(new Font(20));
+        levelText.setFill(javafx.scene.paint.Color.WHITE);
+        levelText.setTranslateX(10); // Position at the top-left corner
+        levelText.setTranslateY(20);
+        pane.getChildren().add(levelText);
+
 
         // Instantiate the Ship object
         Ship ship = new Ship(WIDTH / 2, HEIGHT / 2);
@@ -170,7 +180,16 @@ public class Asteroids_Game extends Application {
                     bullets.remove(bullet);
                 });
 
-
+                // Check if all asteroids are destroyed to increase the level
+                if (asteroids.isEmpty()) {
+                    level++;
+                    levelText.setText("LEVEL: " + level);
+                    for (int i = 0; i < 5 + level; i++) {
+                        Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150), AsteroidSize.LARGE);
+                        asteroids.add(asteroid);
+                        pane.getChildren().add(asteroid.getCharacter());
+                    }
+                }
 
             }
         };
