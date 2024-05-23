@@ -88,7 +88,14 @@ public abstract class Character {
         return this.character.getRotate();
     }
 
+    public double getSpeed() {
+        return this.speed;
+    }
 
+    public void setSpeed(double newSpeed) {
+        this.speed = newSpeed;
+        updateMovement(); // Update movement based on new speed
+    }
 
     public boolean collision(Character other) {
         Shape collisionArea = Shape.intersect(this.character, other.getCharacter());

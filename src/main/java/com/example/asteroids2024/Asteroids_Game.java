@@ -52,7 +52,7 @@ public class Asteroids_Game extends Application {
         //Instantiate list of Asteroid objects
         Random rnd = new Random();
         List<Asteroid> asteroids = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
 
             Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150), AsteroidSize.LARGE);
             asteroids.add(asteroid);
@@ -153,18 +153,32 @@ public class Asteroids_Game extends Application {
                         // add logic to spawn new asteroids one size smaller in for large and medium asteroids
                         if (hit.getSize() == AsteroidSize.LARGE) {
                             for (int i = 0; i < 2; i++) {
+                                double speedMultiple = 1 + rnd.nextDouble();
+                                double newSpeed = hit.getSpeed() * speedMultiple;
+                                double angleChange = (0.5 - rnd.nextDouble()) * 60;
+                                double newAngle = hit.getRotate() + angleChange;
                                 Asteroid newAsteroid = new Asteroid(
                                         (int) hit.getCharacter().getTranslateX(),
                                         (int) hit.getCharacter().getTranslateY(),
                                         AsteroidSize.MEDIUM);
+                                newAsteroid.setSpeed(newSpeed);
+                                newAsteroid.setRotate(newAngle);
                                 asteroids.add(newAsteroid);
+
                                 pane.getChildren().add(newAsteroid.getCharacter());
                             } } else if (hit.getSize() == AsteroidSize.MEDIUM) {
                             for (int i = 0; i < 2; i++) {
+                                double speedMultiple = 1 + rnd.nextDouble();
+                                double newSpeed = hit.getSpeed() * speedMultiple;
+                                double angleChange = (0.5 - rnd.nextDouble()) * 60;
+                                double newAngle = hit.getRotate() + angleChange;
                                 Asteroid newAsteroid = new Asteroid(
                                         (int) hit.getCharacter().getTranslateX(),
                                         (int) hit.getCharacter().getTranslateY(),
                                         AsteroidSize.SMALL);
+                                newAsteroid.setSpeed(newSpeed);
+                                newAsteroid.setRotate(newAngle);
+
                                 asteroids.add(newAsteroid);
                                 pane.getChildren().add(newAsteroid.getCharacter());
                             } }
@@ -184,8 +198,9 @@ public class Asteroids_Game extends Application {
                 if (asteroids.isEmpty()) {
                     level++;
                     levelText.setText("LEVEL: " + level);
-                    for (int i = 0; i < 5 + level; i++) {
+                    for (int i = 0; i < level; i++) {
                         Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150), AsteroidSize.LARGE);
+
                         asteroids.add(asteroid);
                         pane.getChildren().add(asteroid.getCharacter());
                     }
