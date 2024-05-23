@@ -146,7 +146,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>224</line>
+          <line>228</line>
           <properties class="com.example.asteroids2024.Asteroids_Game" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

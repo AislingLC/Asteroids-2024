@@ -164,6 +164,7 @@ public class Asteroids_Game extends Application {
                     collisions.stream().forEach(hit -> {
                         // add logic to spawn new asteroids one size smaller in for large and medium asteroids
                         if (hit.getSize() == AsteroidSize.LARGE) {
+                            pointsText.setText("Points: " + points.addAndGet(250));
                             for (int i = 0; i < 2; i++) {
                                 double speedMultiple = 1 + rnd.nextDouble();
                                 double newSpeed = hit.getSpeed() * speedMultiple;
@@ -179,6 +180,7 @@ public class Asteroids_Game extends Application {
 
                                 pane.getChildren().add(newAsteroid.getCharacter());
                             } } else if (hit.getSize() == AsteroidSize.MEDIUM) {
+                            pointsText.setText("Points: " + points.addAndGet(100));
                             for (int i = 0; i < 2; i++) {
                                 double speedMultiple = 1 + rnd.nextDouble();
                                 double newSpeed = hit.getSpeed() * speedMultiple;
@@ -193,7 +195,9 @@ public class Asteroids_Game extends Application {
 
                                 asteroids.add(newAsteroid);
                                 pane.getChildren().add(newAsteroid.getCharacter());
-                            } }
+                            } } else {
+                            pointsText.setText("Points: " + points.addAndGet(25));
+                        }
 
 
                         asteroids.remove(hit);
