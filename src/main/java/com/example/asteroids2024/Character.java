@@ -101,6 +101,13 @@ public abstract class Character {
         Shape collisionArea = Shape.intersect(this.character, other.getCharacter());
         return collisionArea.getBoundsInLocal().getWidth() != -1;
     }
+
+
+    public double aim(Character target) {
+        double diffX = target.getCharacter().getTranslateX() - this.getCharacter().getTranslateX();
+        double diffY = target.getCharacter().getTranslateY() - this.getCharacter().getTranslateY();
+        return Math.toDegrees(Math.atan2(diffY, diffX));
+    }
     }
 
 
