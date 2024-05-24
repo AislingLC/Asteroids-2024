@@ -73,6 +73,9 @@ public class Asteroids_Game extends Application {
         // get an empty list for bullets but don't add to screen yet
         List<Bullet> bullets = new ArrayList<>();
 
+        // get an empty list for alienShip but don't add to screen yet
+        List<AlienShip> alienShips = new ArrayList<>();
+
 
 
         pane.getChildren().add(ship.getCharacter());
@@ -146,12 +149,19 @@ public class Asteroids_Game extends Application {
                 ship.move();
                 asteroids.forEach(asteroid -> asteroid.move());
 
+
                 asteroids.forEach(asteroid -> {
                     if (ship.collision(asteroid)) {
                         stop();
                     }
 
                 });
+
+                alienShips.forEach(alienShip -> alienShip.move());
+
+
+
+
                 bullets.forEach((bullet -> bullet.move()));
 
                 List<Bullet> usedBullets = bullets.stream().filter(bullet -> {
@@ -225,12 +235,19 @@ public class Asteroids_Game extends Application {
                 }
 
 
-                // Spawn in AlienShip approximately every 17 seconds
+                // Spawn in AlienShip approximately every 17 seconds but not if one is already there
                 if (rnd.nextDouble() < 0.001) {
-                    AlienShip alienShip = new AlienShip(100, 100);
-                    if(!alienShip.collision(ship)) {
-                        pane.getChildren().add(alienShip.getCharacter());
-                    }
+
+                    if (alienShips.isEmpty()) {
+
+                    AlienShip alienShip = new AlienShip(rnd.nextInt(0,600), rnd.nextInt(0,400));
+                        if(!alienShip.collision(ship)) {
+                            alienShips.add(alienShip);
+                            pane.getChildren().add(alienShip.getCharacter());
+
+                        }
+                        }
+
                 }
 
             }

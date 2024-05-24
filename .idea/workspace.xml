@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/AlienShip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/AlienShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/AlienShip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +147,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>239</line>
+          <line>256</line>
           <properties class="com.example.asteroids2024.Asteroids_Game" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
