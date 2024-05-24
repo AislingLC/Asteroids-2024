@@ -15,6 +15,11 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import javafx.animation.KeyFrame;
+
+
 
 
 // create subclass of javafx class Application specific to Asteroids
@@ -75,6 +80,9 @@ public class Asteroids_Game extends Application {
 
         // get an empty list for alienShip but don't add to screen yet
         List<AlienShip> alienShips = new ArrayList<>();
+        // get an empty list for alien bullets but don't add to screen yet
+        List<Bullet> alienBullets = new ArrayList<>();
+
 
 
 
@@ -129,6 +137,27 @@ public class Asteroids_Game extends Application {
         });
 
 
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+
+            alienShips.forEach(alienShip -> {
+
+                Bullet bullet = new Bullet((int) alienShip.getCharacter().getTranslateX(), (int) alienShip.getCharacter().getTranslateY());
+                double direction = alienShip.aim(ship);
+                bullet.setRotate(direction);
+                bullet.setSpeed(5); // Set a speed for the bullet
+                alienBullets.add(bullet);
+                pane.getChildren().add(bullet.getCharacter());
+
+            });
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
+
+
+
+
+
         // Create an AnimationTimer to handle the ship rotation
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -161,8 +190,8 @@ public class Asteroids_Game extends Application {
 
 
 
-
                 bullets.forEach((bullet -> bullet.move()));
+                alienBullets.forEach((bullet -> bullet.move()));
 
                 List<Bullet> usedBullets = bullets.stream().filter(bullet -> {
                     List<Asteroid> collisions =  asteroids.stream()
