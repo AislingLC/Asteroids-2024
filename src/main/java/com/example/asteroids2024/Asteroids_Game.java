@@ -210,6 +210,8 @@ public class Asteroids_Game extends Application {
                     bullets.remove(bullet);
                 });
 
+
+
                 // Check if all asteroids are destroyed to increase the level
                 if (asteroids.isEmpty()) {
                     level++;
@@ -219,6 +221,15 @@ public class Asteroids_Game extends Application {
 
                         asteroids.add(asteroid);
                         pane.getChildren().add(asteroid.getCharacter());
+                    }
+                }
+
+
+                // Spawn in AlienShip approximately every 17 seconds
+                if (rnd.nextDouble() < 0.001) {
+                    AlienShip alienShip = new AlienShip(100, 100);
+                    if(!alienShip.collision(ship)) {
+                        pane.getChildren().add(alienShip.getCharacter());
                     }
                 }
 
