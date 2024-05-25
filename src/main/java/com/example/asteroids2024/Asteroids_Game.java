@@ -39,6 +39,8 @@ public class Asteroids_Game extends Application {
 
     private Text pointsText; // text variable to total points accumulated
 
+
+
     @Override
     // use existing class Stage - the interface for managing the window
     public void start(Stage stage) throws Exception {
@@ -185,6 +187,11 @@ public class Asteroids_Game extends Application {
                     }
 
                 });
+                alienBullets.forEach(bullet -> {
+                    if(ship.collision(bullet)){
+                        stop();
+                    }
+                }); 
 
                 alienShips.forEach(alienShip -> alienShip.move());
 
@@ -248,6 +255,89 @@ public class Asteroids_Game extends Application {
                     pane.getChildren().remove(bullet.getCharacter());
                     bullets.remove(bullet);
                 });
+
+
+                // similar functionality to remove alien bullets hitting asteroids or the ship
+                List<Bullet> usedAlienBullets = alienBullets.stream().filter(bullet -> {
+                    List<Asteroid> alienCollisions =  asteroids.stream()
+                            .filter(asteroid -> asteroid.collision(bullet))
+                            .collect(Collectors.toList());
+                    if(alienCollisions.isEmpty()) {
+                        return false;
+                    }
+                    alienCollisions.stream().forEach(hit -> {
+                        // add logic to spawn new asteroids one size smaller in for large and medium asteroids
+                        if (hit.getSize() == AsteroidSize.LARGE) {
+                            pointsText.setText("Points: " + points.addAndGet(250));
+                            for (int i = 0; i < 2; i++) {
+                                double speedMultiple = 1 + rnd.nextDouble();
+                                double newSpeed = hit.getSpeed() * speedMultiple;
+                                double angleChange = (0.5 - rnd.nextDouble()) * 60;
+                                double newAngle = hit.getRotate() + angleChange;
+                                Asteroid newAsteroid = new Asteroid(
+                                        (int) hit.getCharacter().getTranslateX(),
+                                        (int) hit.getCharacter().getTranslateY(),
+                                        AsteroidSize.MEDIUM);
+                                newAsteroid.setSpeed(newSpeed);
+                                newAsteroid.setRotate(newAngle);
+                                asteroids.add(newAsteroid);
+
+                                pane.getChildren().add(newAsteroid.getCharacter());
+                            } } else if (hit.getSize() == AsteroidSize.MEDIUM) {
+                            pointsText.setText("Points: " + points.addAndGet(100));
+                            for (int i = 0; i < 2; i++) {
+                                double speedMultiple = 1 + rnd.nextDouble();
+                                double newSpeed = hit.getSpeed() * speedMultiple;
+                                double angleChange = (0.5 - rnd.nextDouble()) * 60;
+                                double newAngle = hit.getRotate() + angleChange;
+                                Asteroid newAsteroid = new Asteroid(
+                                        (int) hit.getCharacter().getTranslateX(),
+                                        (int) hit.getCharacter().getTranslateY(),
+                                        AsteroidSize.SMALL);
+                                newAsteroid.setSpeed(newSpeed);
+                                newAsteroid.setRotate(newAngle);
+
+                                asteroids.add(newAsteroid);
+                                pane.getChildren().add(newAsteroid.getCharacter());
+                            } } else {
+                            pointsText.setText("Points: " + points.addAndGet(25));
+                        }
+
+
+                        asteroids.remove(hit);
+                        pane.getChildren().remove(hit.getCharacter());
+                    });
+                    return true;
+                }).collect(Collectors.toList());
+                usedAlienBullets.forEach(bullet -> {
+                    pane.getChildren().remove(bullet.getCharacter());
+                    bullets.remove(bullet);
+                });
+
+            // ship bullets can kill the alien ship
+                List<Bullet> bulletsHitAlien = bullets.stream().filter(bullet -> {
+                    List<AlienShip> collisions = alienShips.stream()
+                            .filter(alienShip -> alienShip.collision(bullet))
+                            .collect(Collectors.toList());
+
+                    if(collisions.isEmpty()) {
+                        return false;
+                    }
+
+                    collisions.stream().forEach(collided -> {
+                        alienShips.remove(collided);
+                        pane.getChildren().remove(collided.getCharacter());
+                    });
+
+                    return true;
+                }).collect(Collectors.toList());
+
+                bulletsHitAlien.forEach(bullet -> {
+                    pane.getChildren().remove(bullet.getCharacter());
+                    bullets.remove(bullet);
+                });
+
+
 
 
 
