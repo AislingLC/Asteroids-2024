@@ -39,6 +39,8 @@ public class Asteroids_Game extends Application {
 
     private Text pointsText; // text variable to total points accumulated
 
+    private boolean safeJump; // indicates if hyperspace jump is free from immediate collision with asteroids
+
 
 
     @Override
@@ -121,6 +123,21 @@ public class Asteroids_Game extends Application {
                 pane.getChildren().add(bullet.getCharacter());
             }
 
+            if (event.getCode() == KeyCode.ENTER) {
+                // start hyperspace and keep repeating until landing in a safe location
+                do {
+                    ship.hyperspace();
+                    safeJump = true;
+                    for (Asteroid asteroid : asteroids) {
+                        if (ship.collision(asteroid)) {
+                            safeJump = false;
+                            break;
+                        }
+                    }
+                } while (!safeJump);
+
+            }
+
         });
 
         scene.setOnKeyReleased(event -> {
@@ -191,7 +208,7 @@ public class Asteroids_Game extends Application {
                     if(ship.collision(bullet)){
                         stop();
                     }
-                }); 
+                });
 
                 alienShips.forEach(alienShip -> alienShip.move());
 
