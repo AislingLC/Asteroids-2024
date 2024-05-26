@@ -9,12 +9,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.concurrent.atomic.AtomicInteger;
-
+import javafx.scene.paint.Color;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.animation.KeyFrame;
@@ -25,6 +26,9 @@ public class Asteroids_Game extends Application {
 
     public static int WIDTH = 600;
     public static int HEIGHT = 400;
+
+    private Stage stage; // for start screen
+
     private boolean shipLeft = false;
     private boolean shipRight = false;
 
@@ -44,7 +48,41 @@ public class Asteroids_Game extends Application {
 
     @Override
     // use existing class Stage - the interface for managing the window
+
     public void start(Stage stage) throws Exception {
+        this.stage = stage;
+        showStartScreen();
+    }
+
+
+
+    private void showStartScreen() {
+        Pane startPane = new Pane();
+        startPane.setPrefSize(WIDTH, HEIGHT);
+        startPane.setStyle("-fx-background-color: black;");
+
+        Text startText = new Text("Press ENTER to Start \n Press I for Instructions \n Press H for High Scores");
+        startText.setFont(new Font(30));
+        startText.setFill(Color.WHITE);
+        startText.setTranslateX(WIDTH / 2 - 150); // Center the text
+        startText.setTranslateY(HEIGHT / 2);
+        startPane.getChildren().add(startText);
+
+        Scene startScene = new Scene(startPane);
+        stage.setTitle("Asteroids!");
+        stage.setScene(startScene);
+        stage.show();
+
+        startScene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                showGameScreen();
+            }
+        });
+    }
+
+
+
+    private void showGameScreen() {
         // use existing class Pane to create layout container
         Pane pane = new Pane();
         pane.setPrefSize(WIDTH, HEIGHT);
