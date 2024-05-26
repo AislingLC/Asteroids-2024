@@ -20,8 +20,6 @@ import javafx.util.Duration;
 import javafx.animation.KeyFrame;
 
 
-
-
 // create subclass of javafx class Application specific to Asteroids
 public class Asteroids_Game extends Application {
 
@@ -41,7 +39,8 @@ public class Asteroids_Game extends Application {
 
     private boolean safeJump; // indicates if hyperspace jump is free from immediate collision with asteroids
 
-
+    private int lives = 5; // int to store player lives
+    private Text livesText; // text variable to show player lives
 
     @Override
     // use existing class Stage - the interface for managing the window
@@ -60,12 +59,21 @@ public class Asteroids_Game extends Application {
         levelText.setTranslateY(20);
         pane.getChildren().add(levelText);
 
+        // Create the points text to display on screen
         pointsText = new Text("POINTS: " + points);
         pointsText.setFont(new Font(20));
         pointsText.setFill(javafx.scene.paint.Color.WHITE);
         pointsText.setTranslateX(10); // Position at the bottom-left corner
         pointsText.setTranslateY(370);
         pane.getChildren().add(pointsText);
+
+        // Create the lives text to display on screen
+        livesText = new Text("LIVES: " + "A".repeat(lives));
+        livesText.setFont(new Font(20));
+        livesText.setFill(javafx.scene.paint.Color.WHITE);
+        livesText.setTranslateX(450); // Position at the bottom-left corner
+        livesText.setTranslateY(20);
+        pane.getChildren().add(livesText);
 
 
         // Instantiate the Ship object
@@ -200,13 +208,52 @@ public class Asteroids_Game extends Application {
 
                 asteroids.forEach(asteroid -> {
                     if (ship.collision(asteroid)) {
-                        stop();
+                        lives--;
+                        if (lives  > 0) {
+                            livesText.setText("LIVES: " + "A".repeat(lives));
+
+
+                            do {
+
+                            ship.hyperspace();
+                            safeJump = true;
+                            for (Asteroid potentialAsteroid : asteroids) {
+                                if (ship.collision(potentialAsteroid)) {
+                                    safeJump = false;
+                                    break;
+                                }
+                            }
+                        } while (!safeJump);}
+                            else {stop();
+
+                        }
                     }
 
                 });
                 alienBullets.forEach(bullet -> {
                     if(ship.collision(bullet)){
-                        stop();
+                        {
+                            lives--;
+                            if (lives  > 0) {
+                                livesText.setText("LIVES: " + "A".repeat(lives));
+
+                                do {
+                                ship.hyperspace();
+                                safeJump = true;
+                                for (Asteroid potentialAsteroid : asteroids) {
+                                    if (ship.collision(potentialAsteroid)) {
+                                        safeJump = false;
+                                        break;
+                                    }
+                                }
+                            } while (!safeJump);}
+                            else {stop();
+
+                            }
+                        }
+
+
+
                     }
                 });
 
@@ -227,7 +274,7 @@ public class Asteroids_Game extends Application {
                     collisions.stream().forEach(hit -> {
                         // add logic to spawn new asteroids one size smaller in for large and medium asteroids
                         if (hit.getSize() == AsteroidSize.LARGE) {
-                            pointsText.setText("Points: " + points.addAndGet(250));
+                            pointsText.setText("POINTS: " + points.addAndGet(250));
                             for (int i = 0; i < 2; i++) {
                                 double speedMultiple = 1 + rnd.nextDouble();
                                 double newSpeed = hit.getSpeed() * speedMultiple;
