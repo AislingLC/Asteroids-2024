@@ -46,6 +46,8 @@ public class Asteroids_Game extends Application {
     private int lives = 5; // int to store player lives
     private Text livesText; // text variable to show player lives
 
+    private int finalScore;
+
     @Override
     // use existing class Stage - the interface for managing the window
 
@@ -125,6 +127,43 @@ public class Asteroids_Game extends Application {
             }
         });
     }
+
+
+    private void showGameOverScreen() {
+        Pane gameOverPane = new Pane();
+        gameOverPane.setPrefSize(WIDTH, HEIGHT);
+        gameOverPane.setStyle("-fx-background-color: black;");
+
+        Text titleText = new Text("Game Over ");
+        titleText.setFont(new Font(30));
+        titleText.setFill(Color.WHITE);
+        titleText.setTranslateX(WIDTH / 2 - 100); // Center the text
+        titleText.setTranslateY(100);
+        gameOverPane.getChildren().add(titleText);
+
+
+        Text finalScoreText = new Text(
+                "You scored: " + finalScore );
+        finalScoreText.setFont(new Font(20));
+        finalScoreText.setFill(Color.WHITE);
+        finalScoreText.setTranslateX(WIDTH / 2 - 150); // Center the text
+        finalScoreText.setTranslateY(150);
+        gameOverPane.getChildren().add(finalScoreText);
+
+
+        Scene gameOverScene = new Scene(gameOverPane);
+        stage.setTitle("Asteroids!");
+        stage.setScene(gameOverPane.getScene());
+        stage.show();
+
+        gameOverScene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.S) {
+                showStartScreen();
+            }
+        });
+    }
+
+
 
 
 
@@ -310,6 +349,8 @@ public class Asteroids_Game extends Application {
                             }
                         } while (!safeJump);}
                             else {stop();
+                                finalScore = points.get();
+                                showGameOverScreen();
 
                         }
                     }
@@ -333,6 +374,8 @@ public class Asteroids_Game extends Application {
                                 }
                             } while (!safeJump);}
                             else {stop();
+                                finalScore = points.get();
+                                showGameOverScreen();
 
                             }
                         }
