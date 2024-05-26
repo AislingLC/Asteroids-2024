@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -82,6 +83,10 @@ public class Asteroids_Game extends Application {
             if (event.getCode() == KeyCode.I) {
                 showInstructionScreen();
             }
+
+            if (event.getCode() == KeyCode.H) {
+                showHighScoresScreen();
+            }
         });
     }
 
@@ -97,7 +102,7 @@ public class Asteroids_Game extends Application {
         titleText.setFont(new Font(30));
         titleText.setFill(Color.WHITE);
         titleText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        titleText.setTranslateY(50);
+        titleText.setTranslateY(100);
         instructionPane.getChildren().add(titleText);
 
 
@@ -146,10 +151,54 @@ public class Asteroids_Game extends Application {
                 "You scored: " + finalScore );
         finalScoreText.setFont(new Font(20));
         finalScoreText.setFill(Color.WHITE);
-        finalScoreText.setTranslateX(WIDTH / 2 - 150); // Center the text
+        finalScoreText.setTranslateX(WIDTH / 2 - 100); // Center the text
         finalScoreText.setTranslateY(150);
         gameOverPane.getChildren().add(finalScoreText);
 
+        Text newHighScoreText = new Text("New high score!");
+        newHighScoreText.setFont(new Font(30));
+        newHighScoreText.setFill(Color.WHITE);
+        newHighScoreText.setTranslateX(WIDTH / 2 - 100); // Center the text
+        newHighScoreText.setTranslateY(200);
+
+
+
+        // logic to retrieve previous high scores and compare new score with highscores
+        List<Integer> previousHighScores =  HighScoreReader.readHighScoresAsList("highScores.txt");
+        boolean newHighscore = false;
+        for (int score : previousHighScores) {
+            if (finalScore > score){
+                newHighscore = true;
+            }
+        }
+        // get new highscore list if a new highscore has been achieved
+        if (newHighscore){
+            // remove previous lowest high score
+            int lowestHigh = Collections.min(previousHighScores);
+            previousHighScores.remove(Integer.valueOf(lowestHigh));
+            // add new score
+            previousHighScores.add(finalScore);
+            // sort
+            previousHighScores.sort(Collections.reverseOrder());
+            HighScoreWriter.writeHighScores(previousHighScores, "highScores.txt");
+
+
+
+
+
+
+            gameOverPane.getChildren().add(newHighScoreText);
+        }
+
+
+
+
+        Text returnToStartText = new Text("Press S to return to start screen \nPress H to view high scores");
+        returnToStartText.setFont(new Font(20));
+        returnToStartText.setFill(Color.WHITE);
+        returnToStartText.setTranslateX(WIDTH / 2 - 100); // Center the text
+        returnToStartText.setTranslateY(370);
+        gameOverPane.getChildren().add(returnToStartText);
 
         Scene gameOverScene = new Scene(gameOverPane);
         stage.setTitle("Asteroids!");
@@ -157,6 +206,52 @@ public class Asteroids_Game extends Application {
         stage.show();
 
         gameOverScene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.S) {
+                showStartScreen();
+            }
+            if (event.getCode() == KeyCode.H) {
+                showHighScoresScreen();
+            }
+        });
+    }
+
+    private void showHighScoresScreen() {
+        Pane highScoresPane = new Pane();
+        highScoresPane.setPrefSize(WIDTH, HEIGHT);
+        highScoresPane.setStyle("-fx-background-color: black;");
+
+        Text titleText = new Text("High Scores: ");
+        titleText.setFont(new Font(30));
+        titleText.setFill(Color.WHITE);
+        titleText.setTranslateX(WIDTH / 2 - 100); // Center the text
+        titleText.setTranslateY(100);
+        highScoresPane.getChildren().add(titleText);
+
+
+
+        String highScoresString = HighScoreReader.readHighScoresasString("highScores.txt");
+        Text highScoresText = new Text(highScoresString);
+        highScoresText.setFont(new Font(20));
+        highScoresText.setFill(Color.WHITE);
+        highScoresText.setTranslateX(WIDTH / 2 - 150); // Center the text
+        highScoresText.setTranslateY(150);
+        highScoresPane.getChildren().add(highScoresText);
+
+
+        Text returnToStart = new Text("Press S to return to start screen");
+        returnToStart.setFont(new Font(20));
+        returnToStart.setFill(Color.WHITE);
+        returnToStart.setTranslateX(WIDTH / 2 - 150); // Center the text
+        returnToStart.setTranslateY(370);
+        highScoresPane.getChildren().add(returnToStart);
+
+
+        Scene highScoreScene = new Scene(highScoresPane);
+        stage.setTitle("Asteroids!");
+        stage.setScene(highScoresPane.getScene());
+        stage.show();
+
+        highScoreScene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.S) {
                 showStartScreen();
             }
@@ -402,7 +497,7 @@ public class Asteroids_Game extends Application {
                     collisions.stream().forEach(hit -> {
                         // add logic to spawn new asteroids one size smaller in for large and medium asteroids
                         if (hit.getSize() == AsteroidSize.LARGE) {
-                            pointsText.setText("POINTS: " + points.addAndGet(250));
+                            pointsText.setText("POINTS: " + points.addAndGet(50));
                             for (int i = 0; i < 2; i++) {
                                 double speedMultiple = 1 + rnd.nextDouble();
                                 double newSpeed = hit.getSpeed() * speedMultiple;
@@ -434,7 +529,7 @@ public class Asteroids_Game extends Application {
                                 asteroids.add(newAsteroid);
                                 pane.getChildren().add(newAsteroid.getCharacter());
                             } } else {
-                            pointsText.setText("Points: " + points.addAndGet(25));
+                            pointsText.setText("Points: " + points.addAndGet(250));
                         }
 
 
@@ -519,6 +614,9 @@ public class Asteroids_Game extends Application {
                     collisions.stream().forEach(collided -> {
                         alienShips.remove(collided);
                         pane.getChildren().remove(collided.getCharacter());
+                        // add score for killing the alien
+                        pointsText.setText("Points: " + points.addAndGet(500));
+
                     });
 
                     return true;
