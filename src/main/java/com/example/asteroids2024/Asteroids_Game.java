@@ -102,7 +102,7 @@ public class Asteroids_Game extends Application {
         titleText.setFont(new Font(30));
         titleText.setFill(Color.WHITE);
         titleText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        titleText.setTranslateY(100);
+        titleText.setTranslateY(50);
         instructionPane.getChildren().add(titleText);
 
 
@@ -117,7 +117,7 @@ public class Asteroids_Game extends Application {
         instructionText.setFont(new Font(20));
         instructionText.setFill(Color.WHITE);
         instructionText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        instructionText.setTranslateY(100);
+        instructionText.setTranslateY(120);
         instructionPane.getChildren().add(instructionText);
 
 
@@ -197,7 +197,7 @@ public class Asteroids_Game extends Application {
         returnToStartText.setFont(new Font(20));
         returnToStartText.setFill(Color.WHITE);
         returnToStartText.setTranslateX(WIDTH / 2 - 100); // Center the text
-        returnToStartText.setTranslateY(370);
+        returnToStartText.setTranslateY(350);
         gameOverPane.getChildren().add(returnToStartText);
 
         Scene gameOverScene = new Scene(gameOverPane);
@@ -390,7 +390,7 @@ public class Asteroids_Game extends Application {
                 Bullet bullet = new Bullet((int) alienShip.getCharacter().getTranslateX(), (int) alienShip.getCharacter().getTranslateY());
                 double direction = alienShip.aim(ship);
                 bullet.setRotate(direction);
-                bullet.setSpeed(5); // Set a speed for the bullet
+                bullet.setSpeed(1); // Set a speed for the bullet
                 alienBullets.add(bullet);
                 pane.getChildren().add(bullet.getCharacter());
 

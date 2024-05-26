@@ -18,7 +18,7 @@ public class AlienShip extends Character {
                 3, 4,
                 10, 0), x, y);
         Random rnd = new Random();
-        this.speed = 1;
+        this.speed = 0.5;
         this.character.setRotate(rnd.nextDouble() * 360);
         this.updateMovement();
 
