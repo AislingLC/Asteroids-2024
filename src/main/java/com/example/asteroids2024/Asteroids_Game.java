@@ -61,11 +61,11 @@ public class Asteroids_Game extends Application {
         startPane.setPrefSize(WIDTH, HEIGHT);
         startPane.setStyle("-fx-background-color: black;");
 
-        Text startText = new Text("Press ENTER to Start \n Press I for Instructions \n Press H for High Scores");
+        Text startText = new Text("Aisling Presents: \nAtari Asteroids in Java\n\n\nPress ENTER to Start \nPress I for Instructions \nPress H for High Scores");
         startText.setFont(new Font(30));
         startText.setFill(Color.WHITE);
         startText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        startText.setTranslateY(HEIGHT / 2);
+        startText.setTranslateY(50);
         startPane.getChildren().add(startText);
 
         Scene startScene = new Scene(startPane);
@@ -77,8 +77,55 @@ public class Asteroids_Game extends Application {
             if (event.getCode() == KeyCode.ENTER) {
                 showGameScreen();
             }
+            if (event.getCode() == KeyCode.I) {
+                showInstructionScreen();
+            }
         });
     }
+
+
+
+
+    private void showInstructionScreen() {
+        Pane instructionPane = new Pane();
+        instructionPane.setPrefSize(WIDTH, HEIGHT);
+        instructionPane.setStyle("-fx-background-color: black;");
+
+        Text titleText = new Text("Game Instructions: ");
+        titleText.setFont(new Font(30));
+        titleText.setFill(Color.WHITE);
+        titleText.setTranslateX(WIDTH / 2 - 150); // Center the text
+        titleText.setTranslateY(50);
+        instructionPane.getChildren().add(titleText);
+
+
+        Text instructionText = new Text(
+                "Press  LEFT to turn anticlockwise \n" +
+                "Press RIGHT to turn clockwise \n" +
+                "Press UP to accelerate \n" +
+                        "Press DOWN to decelerate \n" +
+                        "Press SPACE to shoot \n" +
+                        "Press ENTER to hyperspace teleport \n \n  \n \n \n" +
+                        "To return to START menu hit S" );
+        instructionText.setFont(new Font(20));
+        instructionText.setFill(Color.WHITE);
+        instructionText.setTranslateX(WIDTH / 2 - 150); // Center the text
+        instructionText.setTranslateY(100);
+        instructionPane.getChildren().add(instructionText);
+
+
+        Scene instructionScene = new Scene(instructionPane);
+        stage.setTitle("Asteroids!");
+        stage.setScene(instructionPane.getScene());
+        stage.show();
+
+        instructionScene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.S) {
+                showStartScreen();
+            }
+        });
+    }
+
 
 
 

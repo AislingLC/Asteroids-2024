@@ -131,7 +131,7 @@
       <workItem from="1716329863845" duration="11769000" />
       <workItem from="1716461928180" duration="2255000" />
       <workItem from="1716645190217" duration="6312000" />
-      <workItem from="1716746516834" duration="850000" />
+      <workItem from="1716746516834" duration="1754000" />
     </task>
     <servers />
   </component>
@@ -148,17 +148,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>476</line>
+          <line>522</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>307</line>
+          <line>353</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>477</line>
+          <line>523</line>
           <properties class="com.example.asteroids2024.Asteroids_Game" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
