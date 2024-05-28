@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61edc700-38c1-4160-a805-05bff571bcb1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/GameText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highScores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highScores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/AlienShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/AlienShip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/asteroids2024/Asteroids_Game.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,25 +43,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -146,6 +143,7 @@
       <workItem from="1716461928180" duration="2255000" />
       <workItem from="1716645190217" duration="6312000" />
       <workItem from="1716746516834" duration="7813000" />
+      <workItem from="1716910894670" duration="1364000" />
     </task>
     <servers />
   </component>
@@ -157,22 +155,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>25</line>
+          <line>23</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>664</line>
+          <line>596</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>492</line>
+          <line>424</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/asteroids2024/Asteroids_Game.java</url>
-          <line>665</line>
+          <line>597</line>
           <properties class="com.example.asteroids2024.Asteroids_Game" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

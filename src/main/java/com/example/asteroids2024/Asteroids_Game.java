@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
@@ -16,7 +15,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.concurrent.atomic.AtomicInteger;
-import javafx.scene.paint.Color;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.animation.KeyFrame;
@@ -63,12 +61,9 @@ public class Asteroids_Game extends Application {
         Pane startPane = new Pane();
         startPane.setPrefSize(WIDTH, HEIGHT);
         startPane.setStyle("-fx-background-color: black;");
+        GameText startText = new GameText("Aisling Presents: \nAtari Asteroids in Java\n\n\nPress ENTER to Start \nPress I for Instructions \nPress H for High Scores",
+                150, 50, 30  );
 
-        Text startText = new Text("Aisling Presents: \nAtari Asteroids in Java\n\n\nPress ENTER to Start \nPress I for Instructions \nPress H for High Scores");
-        startText.setFont(new Font(30));
-        startText.setFill(Color.WHITE);
-        startText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        startText.setTranslateY(50);
         startPane.getChildren().add(startText);
 
         Scene startScene = new Scene(startPane);
@@ -98,26 +93,22 @@ public class Asteroids_Game extends Application {
         instructionPane.setPrefSize(WIDTH, HEIGHT);
         instructionPane.setStyle("-fx-background-color: black;");
 
-        Text titleText = new Text("Game Instructions: ");
-        titleText.setFont(new Font(30));
-        titleText.setFill(Color.WHITE);
-        titleText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        titleText.setTranslateY(50);
+
+        GameText titleText = new GameText("Game Instructions: ",
+                150, 50, 30  );
+
         instructionPane.getChildren().add(titleText);
 
 
-        Text instructionText = new Text(
+        GameText instructionText = new GameText(
                 "Press  LEFT to turn anticlockwise \n" +
                 "Press RIGHT to turn clockwise \n" +
                 "Press UP to accelerate \n" +
                         "Press DOWN to decelerate \n" +
                         "Press SPACE to shoot \n" +
                         "Press ENTER to hyperspace teleport \n \n  \n \n \n" +
-                        "To return to START menu hit S" );
-        instructionText.setFont(new Font(20));
-        instructionText.setFill(Color.WHITE);
-        instructionText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        instructionText.setTranslateY(120);
+                        "To return to START menu hit S" , 150, 120, 20);
+
         instructionPane.getChildren().add(instructionText);
 
 
@@ -139,29 +130,15 @@ public class Asteroids_Game extends Application {
         gameOverPane.setPrefSize(WIDTH, HEIGHT);
         gameOverPane.setStyle("-fx-background-color: black;");
 
-        Text titleText = new Text("Game Over ");
-        titleText.setFont(new Font(30));
-        titleText.setFill(Color.WHITE);
-        titleText.setTranslateX(WIDTH / 2 - 100); // Center the text
-        titleText.setTranslateY(100);
+        GameText titleText = new GameText("Game Over ", 200, 100, 30);
         gameOverPane.getChildren().add(titleText);
 
 
-        Text finalScoreText = new Text(
-                "You scored: " + finalScore );
-        finalScoreText.setFont(new Font(20));
-        finalScoreText.setFill(Color.WHITE);
-        finalScoreText.setTranslateX(WIDTH / 2 - 100); // Center the text
-        finalScoreText.setTranslateY(150);
+        GameText finalScoreText = new GameText(
+                "You scored: " + finalScore , 200, 150, 20);
         gameOverPane.getChildren().add(finalScoreText);
 
-        Text newHighScoreText = new Text("New high score!");
-        newHighScoreText.setFont(new Font(30));
-        newHighScoreText.setFill(Color.WHITE);
-        newHighScoreText.setTranslateX(WIDTH / 2 - 100); // Center the text
-        newHighScoreText.setTranslateY(200);
-
-
+        GameText newHighScoreText = new GameText("New high score!", 200, 200, 30);
 
         // logic to retrieve previous high scores and compare new score with highscores
         List<Integer> previousHighScores =  HighScoreReader.readHighScoresAsList("highScores.txt");
@@ -182,22 +159,12 @@ public class Asteroids_Game extends Application {
             previousHighScores.sort(Collections.reverseOrder());
             HighScoreWriter.writeHighScores(previousHighScores, "highScores.txt");
 
-
-
-
-
-
             gameOverPane.getChildren().add(newHighScoreText);
         }
 
 
-
-
-        Text returnToStartText = new Text("Press S to return to start screen \nPress H to view high scores");
-        returnToStartText.setFont(new Font(20));
-        returnToStartText.setFill(Color.WHITE);
-        returnToStartText.setTranslateX(WIDTH / 2 - 100); // Center the text
-        returnToStartText.setTranslateY(350);
+        GameText returnToStartText = new GameText("Press S to return to start screen \nPress H to view high scores",
+                200, 350, 20);
         gameOverPane.getChildren().add(returnToStartText);
 
         Scene gameOverScene = new Scene(gameOverPane);
@@ -220,29 +187,15 @@ public class Asteroids_Game extends Application {
         highScoresPane.setPrefSize(WIDTH, HEIGHT);
         highScoresPane.setStyle("-fx-background-color: black;");
 
-        Text titleText = new Text("High Scores: ");
-        titleText.setFont(new Font(30));
-        titleText.setFill(Color.WHITE);
-        titleText.setTranslateX(WIDTH / 2 - 100); // Center the text
-        titleText.setTranslateY(100);
+        GameText titleText = new GameText("High Scores: ", 200, 100, 30);
         highScoresPane.getChildren().add(titleText);
 
-
-
         String highScoresString = HighScoreReader.readHighScoresasString("highScores.txt");
-        Text highScoresText = new Text(highScoresString);
-        highScoresText.setFont(new Font(20));
-        highScoresText.setFill(Color.WHITE);
-        highScoresText.setTranslateX(WIDTH / 2 - 150); // Center the text
-        highScoresText.setTranslateY(150);
+        GameText highScoresText = new GameText(highScoresString, 150, 150, 20);
         highScoresPane.getChildren().add(highScoresText);
 
 
-        Text returnToStart = new Text("Press S to return to start screen");
-        returnToStart.setFont(new Font(20));
-        returnToStart.setFill(Color.WHITE);
-        returnToStart.setTranslateX(WIDTH / 2 - 150); // Center the text
-        returnToStart.setTranslateY(370);
+        GameText returnToStart = new GameText("Press S to return to start screen", 150, 370, 20);
         highScoresPane.getChildren().add(returnToStart);
 
 
@@ -271,29 +224,16 @@ public class Asteroids_Game extends Application {
         pane.setStyle("-fx-background-color: black;");
 
         // Create the level text to display on screen
-        levelText = new Text("LEVEL: " + level);
-        levelText.setFont(new Font(20));
-        levelText.setFill(javafx.scene.paint.Color.WHITE);
-        levelText.setTranslateX(10); // Position at the top-left corner
-        levelText.setTranslateY(20);
+        GameText levelText = new GameText("LEVEL: " + level, 10, 20, 20);
         pane.getChildren().add(levelText);
 
         // Create the points text to display on screen
-        pointsText = new Text("POINTS: " + points);
-        pointsText.setFont(new Font(20));
-        pointsText.setFill(javafx.scene.paint.Color.WHITE);
-        pointsText.setTranslateX(10); // Position at the bottom-left corner
-        pointsText.setTranslateY(370);
+        GameText pointsText = new GameText("POINTS: " + points, 10, 370, 20);
         pane.getChildren().add(pointsText);
 
         // Create the lives text to display on screen
-        livesText = new Text("LIVES: " + "A".repeat(lives));
-        livesText.setFont(new Font(20));
-        livesText.setFill(javafx.scene.paint.Color.WHITE);
-        livesText.setTranslateX(450); // Position at the bottom-left corner
-        livesText.setTranslateY(20);
+        GameText livesText = new GameText("LIVES: " + "A".repeat(lives), 450, 20, 20);
         pane.getChildren().add(livesText);
-
 
         // Instantiate the Ship object
         Ship ship = new Ship(WIDTH / 2, HEIGHT / 2);
@@ -301,7 +241,6 @@ public class Asteroids_Game extends Application {
         Random rnd = new Random();
         List<Asteroid> asteroids = new ArrayList<>();
         for (int i = 0; i < 1; i++) {
-
             Asteroid asteroid = new Asteroid(rnd.nextInt(200), rnd.nextInt(150), AsteroidSize.LARGE);
             asteroids.add(asteroid);
         }
@@ -313,8 +252,6 @@ public class Asteroids_Game extends Application {
         List<AlienShip> alienShips = new ArrayList<>();
         // get an empty list for alien bullets but don't add to screen yet
         List<Bullet> alienBullets = new ArrayList<>();
-
-
 
 
         pane.getChildren().add(ship.getCharacter());
@@ -398,11 +335,6 @@ public class Asteroids_Game extends Application {
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
-
-
-
-
-
 
         // Create an AnimationTimer to handle the ship rotation
         AnimationTimer timer = new AnimationTimer() {
